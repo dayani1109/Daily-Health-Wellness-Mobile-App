@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:elevation="8dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvUpdateTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:text="Update Task"
+        android:textColor="@color/MainGreen"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Task Name -->
+    <EditText
+        android:id="@+id/etUpdateTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Task Name"
+        android:background="@drawable/edittext_bg"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:inputType="textCapSentences"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Task Date -->
+    <EditText
+        android:id="@+id/etUpdateTaskDate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Task Date"
+        android:background="@drawable/edittext_bg"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:focusable="false"
+        android:clickable="true"
+        android:inputType="date"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancelUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray"
+            android:text="Cancel"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnSaveUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:backgroundTint="@color/MainGreen"
+            android:text="Save"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>

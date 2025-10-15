@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name"></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="back_button">Back button</string>
+    <string name="logo_description">ZenBloom logo</string>
+    <string name="login">LOGIN</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="log_in">LOG IN</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or_log_in_with_email">OR LOG IN WITH EMAIL</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+
+    <string name="createAccount">Create Your Account</string>
+    <string name="or">OR</string>
+    <string name="sign_in">Already have an account? Sign In</string>
+
+    <string name="daily_habit_task">Daily Habit Task</string>
+    <string name="today_header">TODAY</string>
+    <string name="to_do">TO DO</string>
+    <string name="in_progress">In Progress</string>
+    <string name="done">Done</string>
+    <string name="brush_teeth">Brush Teeth</string>
+    <string name="wash_face">Wash Face</string>
+    <string name="backbutton">Back Button</string>
+    <string name="calendar_icon">Calendar</string>
+    <string name="add_task">Add Task Button</string>
+    <string name="home_icon">Home</string>
+    <string name="search_icon">Search</string>
+    <string name="favorites_icon">Favorites</string>
+    <string name="settings_icon">Settings</string>
+
+    <!-- Widget strings -->
+    <string name="widget_description">Daily Wellness Progress Widget</string>
+
+    <!-- Habit strings -->
+    <string name="habit_drink_water">Drink Water</string>
+    <string name="habit_meditate">Meditate</string>
+    <string name="habit_exercise">Exercise</string>
+    <string name="habit_sleep">Sleep</string>
+    <string name="habit_eat_healthy">Eat Healthy</string>
+    <string name="habit_read">Read</string>
+
+    <!-- Mood strings -->
+    <string name="mood_happy">Happy</string>
+    <string name="mood_sad">Sad</string>
+    <string name="mood_angry">Angry</string>
+    <string name="mood_anxious">Anxious</string>
+    <string name="mood_calm">Calm</string>
+    <string name="mood_tired">Tired</string>
+    <string name="mood_excited">Excited</string>
+    <string name="mood_confused">Confused</string>
+    <string name="mood_love">Love</string>
+    <string name="mood_surprised">Surprised</string>
+    <string name="mood_neutral">Neutral</string>
+
+    <!-- Notification strings -->
+    <string name="notification_hydration_title">Time to Hydrate!</string>
+    <string name="notification_habit_title">Habit Reminder</string>
+    <string name="notification_daily_summary_title">Daily Wellness Summary</string>
+    <string name="notification_achievement_title">Achievement Unlocked!</string>
+
+    <!-- Settings strings -->
+    <string name="settings_hydration_reminder">Hydration Reminder</string>
+    <string name="settings_habit_reminder">Habit Reminder</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_sound">Sound</string>
+    <string name="settings_vibration">Vibration</string>
+
+    <!-- Icon descriptions -->
+    <string name="daily_habit_icon">Daily habit icon</string>
+    <string name="hydrating_icon">Hydrating icon</string>
+    <string name="meditation_icon">Meditation icon</string>
+    <string name="mood_journal_icon">Mood journal icon</string>
+
+
+
+</resources>

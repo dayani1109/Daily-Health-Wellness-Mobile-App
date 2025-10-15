@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="MainGreen">#298F92</color>
+    <color name="MintGreen">#8EC8B5</color>
+    <color name="primaryGreen">#5AB697</color>
+    <color name="lightGreen">#C8EADF</color>
+
+    <color name="teal_700">#018786</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="gray">#808080</color>
+
+    <color name="highlightLight">#D3F3E8</color> <!-- light green for today -->
+    <color name="dayNormal">#FFFFFF</color> <!-- normal background for other days -->
+    <color name="lightGray">#D3D3D3</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="holo_red_dark">#FF0000</color>
+
+
+
+
+
+
+</resources>

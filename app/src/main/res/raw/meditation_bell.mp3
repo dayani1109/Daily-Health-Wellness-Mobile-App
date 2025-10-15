@@ -1,0 +1,2 @@
+val mediaPlayer = MediaPlayer.create(context, R.raw.meditation_bell)
+mediaPlayer.start()

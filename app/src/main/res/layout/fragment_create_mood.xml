@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.fragments.CreateMoodFragment">
+
+    <!-- Toolbar / Title -->
+    <TextView
+        android:id="@+id/tvCreateMoodTitle"
+        android:layout_width="414dp"
+        android:layout_height="90dp"
+        android:background="@color/MainGreen"
+        android:gravity="center"
+        android:text="Create Mood Journal"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Date and Time Row -->
+
+    <!-- Emoji Selection Row -->
+
+    <LinearLayout
+        android:id="@+id/dateTimeRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/lightGreen"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCreateMoodTitle">
+
+        <TextView
+            android:id="@+id/tvSelectedDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Date: "
+            android:textColor="#076368"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSelectedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: "
+            android:textColor="#076368"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/emojiRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateTimeRow">
+
+        <TextView
+            android:id="@+id/emoji_happy"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="😊"
+            android:textSize="42sp"/>
+
+        <TextView
+            android:id="@+id/emoji_sad"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="😢"
+            android:textSize="42sp"/>
+
+        <TextView
+            android:id="@+id/emoji_angry"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="😡"
+            android:textSize="42sp"/>
+
+        <TextView
+            android:id="@+id/emoji_neutral"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="😐"
+            android:textSize="42sp"/>
+
+        <TextView
+            android:id="@+id/emoji_excited"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="🤩"
+            android:textSize="42sp"/>
+    </LinearLayout>
+
+    <!-- Journal Message -->
+    <EditText
+        android:id="@+id/etMoodJournal"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:hint="Write your mood details..."
+        android:gravity="top|start"
+        android:padding="16dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@id/emojiRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- Feeling Buttons -->
+    <LinearLayout
+        android:id="@+id/feelingRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etMoodJournal">
+
+        <Button
+            android:id="@+id/btnLow"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/primaryGreen"
+            android:text="Low"/>
+
+        <Button
+            android:id="@+id/btnMedium"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/primaryGreen"
+            android:text="Medium"/>
+
+        <Button
+            android:id="@+id/btnHigh"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/primaryGreen"
+            android:text="High"/>
+    </LinearLayout>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSaveMood"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/MainGreen"
+        android:text="Save Mood Journal"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/feelingRow" />
+</androidx.constraintlayout.widget.ConstraintLayout>

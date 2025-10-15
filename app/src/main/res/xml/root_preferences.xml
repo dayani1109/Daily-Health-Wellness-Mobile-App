@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Title -->
+    <PreferenceCategory android:title="Appearance">
+        <ListPreference
+            android:key="theme_preference"
+            android:title="App Theme"
+            android:summary="Choose Dark or Light mode"
+            android:entries="@array/theme_options"
+            android:entryValues="@array/theme_values"
+            android:defaultValue="light" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Layout">
+        <ListPreference
+            android:key="orientation_preference"
+            android:title="Screen Orientation"
+            android:summary="Portrait or Landscape"
+            android:entries="@array/orientation_options"
+            android:entryValues="@array/orientation_values"
+            android:defaultValue="portrait" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Widgets">
+        <SwitchPreferenceCompat
+            android:key="widget_enabled"
+            android:title="Enable Home-Screen Widget"
+            android:summary="Turn habit completion widget on/off"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
