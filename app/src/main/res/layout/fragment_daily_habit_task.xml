@@ -1,96 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/white"
     tools:context=".ui.fragments.DailyHabitTaskFragment">
 
-    <!-- Toolbar / Title -->
-    <TextView
-        android:id="@+id/tvAddTaskTitle"
-        android:layout_width="416dp"
-        android:layout_height="104dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clToolbar"
+        android:layout_width="412dp"
+        android:layout_height="93dp"
         android:background="@color/MainGreen"
-        android:gravity="center"
-        android:text="My Daily Tasks"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Date Selector -->
+        <ImageView
+            android:id="@+id/dailyTask_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@drawable/new_backarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAddTaskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Daily Tasks"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:id="@+id/dateSelector"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
         android:orientation="horizontal"
-        android:padding="8dp"
+        android:paddingHorizontal="16dp"
         android:gravity="center_vertical"
-        android:background="@color/lightGreen"
-        app:layout_constraintTop_toBottomOf="@id/tvAddTaskTitle"
+        android:background="@drawable/date_selector_bg"
+        android:elevation="2dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/clToolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/tvSelectedDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Select Date"
-            android:textColor="#076368"
-            android:textSize="16sp"
+            android:text="Today, 15 Oct"
+            android:textColor="@color/MainGreen"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btnPickDate"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/lightGreen"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
             android:contentDescription="Pick Date"
+            android:padding="8dp"
             android:src="@drawable/calander" />
     </LinearLayout>
 
-    <!-- Progress Container -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/progressContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
         app:layout_constraintTop_toBottomOf="@id/dateSelector"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/progressBar"
-            style="@android:style/Widget.ProgressBar.Horizontal"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="0dp"
-            android:layout_height="14dp"
+            android:layout_height="20dp"
             android:max="100"
-            android:paddingLeft="10dp"
-            android:progress="0"
+            android:progress="75"
+            android:progressBackgroundTint="@color/lightGray"
             android:progressTint="@color/MainGreen"
+            android:scaleY="2.5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvProgressPercent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Progress % Text -->
         <TextView
             android:id="@+id/tvProgressPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="0%"
-            android:textColor="@color/black"
+            android:layout_marginStart="16dp"
+            android:text="75%"
+            android:textColor="@color/MainGreen"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/progressBar"
@@ -98,147 +118,151 @@
             app:layout_constraintTop_toTopOf="@id/progressBar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/tvTaskListTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Habits and Tasks"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/progressContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-
-    <!-- RecyclerView for tasks -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTasks"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/progressContainer"
-        app:layout_constraintBottom_toTopOf="@id/btnAddTask"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTaskListTitle"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Add Task Button -->
     <ImageView
         android:id="@+id/btnAddTask"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:layout_margin="16dp"
+        android:layout_width="35dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
-        android:contentDescription="Add Task"
+        android:elevation="8dp"
         android:focusable="true"
-        android:padding="12dp"
         android:src="@drawable/add"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottom_nav"
-        android:layout_width="412dp"
-        android:layout_height="83dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:background="@color/MainGreen"
         android:gravity="center"
         android:orientation="horizontal"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Home -->
         <LinearLayout
             android:id="@+id/nav_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Home"
-                android:src="@drawable/home" />
+                android:src="@drawable/home"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
                 android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Search -->
         <LinearLayout
             android:id="@+id/nav_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Search"
-                android:src="@drawable/search" />
+                android:src="@drawable/search"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Search"
                 android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Profile -->
         <LinearLayout
             android:id="@+id/nav_profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Profile"
-                android:src="@drawable/profile" />
+                android:src="@drawable/profile"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
                 android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Settings -->
         <LinearLayout
             android:id="@+id/nav_settings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Settings"
-                android:src="@drawable/settings" />
+                android:src="@drawable/settings"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Settings"
                 android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/dailyTask_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/new_backarrow"
-        app:layout_constraintBottom_toBottomOf="@+id/tvAddTaskTitle"
-        app:layout_constraintEnd_toEndOf="@+id/tvAddTaskTitle"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

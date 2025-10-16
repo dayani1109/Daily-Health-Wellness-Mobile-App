@@ -4,60 +4,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:background="@drawable/task_item_bg">
+    android:paddingStart="16dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="12dp"
+    android:background="@drawable/task_item_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
 
-    <!-- Task Completed Checkbox -->
     <CheckBox
         android:id="@+id/cbTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:buttonTint="@color/MainGreen"
+        android:padding="0dp"/>
 
-    <!-- Task Name -->
+    <ImageButton
+        android:id="@+id/btnDeleteTask"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/delete" app:tint="@color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <TextView
         android:id="@+id/tvTaskName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Task Name"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/cbTask"
+        android:textSize="17sp"
+        android:textColor="@color/black" app:layout_constraintStart_toEndOf="@id/cbTask"
         app:layout_constraintTop_toTopOf="@id/cbTask"
         app:layout_constraintEnd_toStartOf="@id/btnDeleteTask"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginStart="12dp"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
-    <!-- Task Date -->
     <TextView
         android:id="@+id/tvTaskDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="01 Oct 2025"
-        android:textSize="14sp"
-        android:textColor="@color/gray"
-        app:layout_constraintStart_toStartOf="@id/tvTaskName"
+        android:textSize="13sp"
+        android:textColor="@color/gray" app:layout_constraintStart_toStartOf="@id/tvTaskName"
         app:layout_constraintTop_toBottomOf="@id/tvTaskName"
         app:layout_constraintEnd_toStartOf="@id/btnDeleteTask"
-        android:layout_marginTop="4dp"/>
-
-    <!-- Delete Button -->
-    <ImageButton
-        android:id="@+id/btnDeleteTask"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Delete Task"
-        android:src="@drawable/delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Extra: Progress Indicator for Each Task (optional small bar) -->
+        app:layout_constraintBottom_toBottomOf="@id/cbTask"
+        android:layout_marginTop="2dp"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

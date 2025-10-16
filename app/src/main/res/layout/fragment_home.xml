@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,45 +11,45 @@
     <!-- Top Background Block (Light Green/Mint Header) -->
     <View
         android:id="@+id/header_background"
-        android:layout_width="417dp"
-        android:layout_height="210dp"
+        android:layout_width="412dp"
+        android:layout_height="202dp"
         android:background="@color/MainGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Top App Bar & Icons -->
-
-    <ImageView
-        android:id="@+id/menu_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:contentDescription="Menu"
-        android:src="@drawable/menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+    <!-- 1. Top App Bar & Icons -->
 
     <!-- Main Goal Title -->
 
-    <!-- Date Picker/Calendar Strip (Nested in a container to manage margin) -->
-    <!-- The Date strip is positioned overlapping the header and the main content -->
+    <!-- 2. Date Picker/Calendar Strip (Fixed 7 Days View with Modern Styling) -->
+    <!-- We wrap the linear layout in a HorizontalScrollView to allow scrolling and added top rounded corners via a drawable -->
 
-    <!-- Scrollable Habit Cards Content -->
+    <ImageView
+        android:id="@+id/menu_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="Menu"
+        android:focusable="true"
+        android:padding="8dp"
+        android:src="@drawable/menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/title_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:fontFamily="serif"
-        android:letterSpacing="0.1"
+        android:letterSpacing="0.05"
         android:text="HOME"
         android:textColor="#FFFFFF"
-        android:textSize="32sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/menu_icon"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,71 +61,100 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="24dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4dp"
         android:text="Create Your Goal for Your Future"
-        android:textColor="#FDFBFB"
-        android:textSize="26sp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_home" />
 
-    <LinearLayout
+    <HorizontalScrollView
         android:id="@+id/date_strip"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:layout_width="412dp"
+        android:layout_height="112dp"
+        android:background="@drawable/rounded_top_strip_bg"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_background">
 
-        <!-- Week Dates (Dynamic from Code) -->
-        <TextView
-            android:id="@+id/tv_day1"
-            style="@style/DayTextStyle"
-            android:layout_marginEnd="16dp"/>
+        <LinearLayout
+            android:id="@+id/date_strip_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_day2"
-            style="@style/DayTextStyle"
-            android:layout_marginEnd="16dp"/>
+            <!-- Week Dates (Dynamic from Code) - Apply modern chip style to DayTextStyle -->
+            <TextView
+                android:id="@+id/tv_day1"
+                style="@style/DayTextStyle"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/day_chip_unselected"
+                android:padding="8dp" />
 
-        <TextView
-            android:id="@+id/tv_day3"
-            style="@style/DayTextStyle"
-            android:layout_marginEnd="16dp"/>
+            <TextView
+                android:id="@+id/tv_day2"
+                style="@style/DayTextStyle"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/day_chip_unselected"
+                android:padding="8dp" />
 
-        <TextView
-            android:id="@+id/tv_day4"
-            style="@style/DayTextStyle"
-            android:layout_marginEnd="16dp"/>
+            <TextView
+                android:id="@+id/tv_day3"
+                style="@style/DayTextStyle"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/day_chip_selected"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_day5"
-            style="@style/DayTextStyle"
-            android:layout_marginEnd="16dp"/>
+            <TextView
+                android:id="@+id/tv_day4"
+                style="@style/DayTextStyle"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/day_chip_unselected"
+                android:padding="8dp" />
 
-        <TextView
-            android:id="@+id/tv_day6"
-            style="@style/DayTextStyle"
-            android:layout_marginEnd="16dp"/>
+            <TextView
+                android:id="@+id/tv_day5"
+                style="@style/DayTextStyle"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/day_chip_unselected"
+                android:padding="8dp" />
 
-        <TextView
-            android:id="@+id/tv_day7"
-            style="@style/DayTextStyle"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_day6"
+                style="@style/DayTextStyle"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/day_chip_unselected"
+                android:padding="8dp" />
 
+            <TextView
+                android:id="@+id/tv_day7"
+                style="@style/DayTextStyle"
+                android:background="@drawable/day_chip_unselected"
+                android:padding="8dp" />
 
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- 3. Scrollable Habit Cards Content -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         app:layout_constraintTop_toBottomOf="@id/date_strip"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -135,36 +165,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:paddingHorizontal="8dp"
+            android:useDefaultMargins="true">
 
-            <!-- Card 1: Daily Habit -->
+            <!-- Card 1: Daily Habit (Modernized) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_daily_habit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#C7E5DB"
+                app:cardBackgroundColor="#EAF7F4"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp"
+                android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="24dp">
-                    <!-- Placeholder for Image Asset (Water Drop Guy) -->
+                    android:padding="20dp">
+                    <!-- Image Asset -->
                     <ImageView
                         android:id="@+id/iv_daily_habit_icon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#C4E0E0"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:background="@android:color/transparent"
                         android:contentDescription="@string/daily_habit_icon"
-                        android:src = "@drawable/perdailyhabit"/>
+                        android:src = "@drawable/perdailyhabit"
+                        app:tint="@color/MainGreen"/>
 
                     <TextView
                         android:id="@+id/tv_daily_habit_title"
@@ -172,37 +202,39 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="Daily Habit"
-                        android:textColor="#336666"
-                        android:textSize="16sp"
+                        android:textColor="@color/MainGreen"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 2: Hydrating -->
+            <!-- Card 2: Hydrating (Modernized) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_hydrating"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#C7E5DB"
+                app:cardBackgroundColor="#EAF7F4"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp"
+                android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="24dp">
-                    <!-- Placeholder for Image Asset (Water Drop Guy) -->
+                    android:padding="20dp">
+                    <!-- Image Asset -->
                     <ImageView
                         android:id="@+id/iv_hydrating_icon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#C4E0E0"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:background="@android:color/transparent"
                         android:contentDescription="@string/hydrating_icon"
-                        android:src = "@drawable/perhydrating"/>
+                        android:src = "@drawable/perhydrating"
+                        app:tint="@color/MainGreen"/>
 
                     <TextView
                         android:id="@+id/tv_hydrating_title"
@@ -210,37 +242,39 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="Hydrating"
-                        android:textColor="#336666"
-                        android:textSize="16sp"
+                        android:textColor="@color/MainGreen"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 3: Meditation -->
+            <!-- Card 3: Meditation (Modernized) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_meditation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#C7E5DB"
+                app:cardBackgroundColor="#EAF7F4"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp"
+                android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="24dp">
-                    <!-- Placeholder for Image Asset (Water Drop Guy) -->
+                    android:padding="20dp">
+                    <!-- Image Asset -->
                     <ImageView
                         android:id="@+id/iv_meditation_icon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#C4E0E0"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:background="@android:color/transparent"
                         android:contentDescription="@string/meditation_icon"
-                        android:src = "@drawable/permeditate"/>
+                        android:src = "@drawable/permeditate"
+                        app:tint="@color/MainGreen"/>
 
                     <TextView
                         android:id="@+id/tv_meditation_title"
@@ -248,37 +282,39 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="Meditation"
-                        android:textColor="#336666"
-                        android:textSize="16sp"
+                        android:textColor="@color/MainGreen"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 4: Mood Journal -->
+            <!-- Card 4: Mood Journal (Modernized) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_mood_journal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#C7E5DB"
+                app:cardBackgroundColor="#EAF7F4"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp"
+                android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="24dp">
-                    <!-- Placeholder for Image Asset (Notebook/Glasses) -->
+                    android:padding="20dp">
+                    <!-- Image Asset -->
                     <ImageView
                         android:id="@+id/iv_mood_journal_icon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#C4E0E0"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:background="@android:color/transparent"
                         android:contentDescription="@string/mood_journal_icon"
-                        android:src = "@drawable/perjournaling"/>
+                        android:src = "@drawable/perjournaling"
+                        app:tint="@color/MainGreen"/>
 
                     <TextView
                         android:id="@+id/tv_mood_journal_title"
@@ -286,8 +322,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="Mood Journal"
-                        android:textColor="#336666"
-                        android:textSize="16sp"
+                        android:textColor="@color/MainGreen"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -296,33 +332,36 @@
     </ScrollView>
 
 
-    <!-- Bottom Navigation Bar (Fixed at the bottom) -->
+    <!-- 4. Bottom Navigation Bar (Fixed at the bottom) -->
     <LinearLayout
         android:id="@+id/bottom_nav"
-        android:layout_width="414dp"
-        android:layout_height="78dp"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
         android:background="@color/MainGreen"
         android:gravity="center"
         android:orientation="horizontal"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Home -->
+        <!-- Home (Added Interactive Feedback and Tint) -->
         <LinearLayout
             android:id="@+id/nav_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Home"
-                android:src="@drawable/home" />
-
+                android:src="@drawable/home"
+                app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -331,21 +370,23 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- Search -->
+        <!-- Search (Added Interactive Feedback and Tint) -->
         <LinearLayout
             android:id="@+id/nav_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Search"
-                android:src="@drawable/search" />
-
+                android:src="@drawable/search"
+                app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -354,21 +395,23 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- Profile -->
+        <!-- Profile (Added Interactive Feedback and Tint) -->
         <LinearLayout
             android:id="@+id/nav_profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Profile"
-                android:src="@drawable/profile" />
-
+                android:src="@drawable/profile"
+                app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -377,21 +420,23 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- Settings -->
+        <!-- Settings (Added Interactive Feedback and Tint) -->
         <LinearLayout
             android:id="@+id/nav_settings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Settings"
-                android:src="@drawable/settings" />
-
+                android:src="@drawable/settings"
+                app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -399,7 +444,6 @@
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
